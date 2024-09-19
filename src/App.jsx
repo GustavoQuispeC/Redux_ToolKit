@@ -1,4 +1,3 @@
-
 import reactLogo from "./assets/react.svg";
 
 import "./App.css";
@@ -6,9 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./store/slice/counter";
 
 function App() {
-  const {counter}= useSelector(state => state.counter)
+  const { counter } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
-  
 
   return (
     <>
@@ -20,13 +18,25 @@ function App() {
       </div>
       <h1>count is {counter}</h1>
       <div className="card">
-        <button onClick={()=>{dispatch(increment())}}>
+        <button
+          onClick={() => {
+            dispatch(increment());
+          }}
+        >
           Increment
         </button>
-        <button onClick={()=>{dispatch(decrement())}}>
+        <button
+          onClick={() => {
+            dispatch(decrement());
+          }}
+        >
           Decrement
         </button>
-        <button onClick={()=>{dispatch(incrementByAmount(5))}}>
+        <button
+          onClick={() => {
+            dispatch(incrementByAmount(2));
+          }}
+        >
           Increment by 2
         </button>
       </div>
