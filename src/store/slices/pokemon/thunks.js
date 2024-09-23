@@ -1,9 +1,9 @@
 import { pokemonApi } from "../../../api/pokemonApi";
-import { setPokemons, startLoadingPokemon } from "./pokemonSlice";
+import { setPokemons, startLoadingPokemons } from "./pokemonSlice";
 
-export const getPokemons = (page = 0) => {
-  return async (dispatch, getState) => {
-    dispatch(startLoadingPokemon());
+export const getPokemons = ( page = 0 ) => {
+  return async( dispatch, getState ) => {
+      dispatch( startLoadingPokemons() );
 
     //TODO: realizar la petición a la http
     // const resp = await fetch(
@@ -12,10 +12,8 @@ export const getPokemons = (page = 0) => {
     // const data = await resp.json();
     // console.log(data);
 
-   const {data} = await pokemonApi.get(`pokemon?limit=10&offset=${page * 10}`);
-    
-    
+    const { data } = await pokemonApi.get(`/pokemon?limit=10&offset=${ page * 10 }`);
 
-    dispatch(setPokemons({ pokemons: data.results, page: page + 1 }));
+    dispatch( setPokemons({ pokemons: data.results, page: page + 1 }) );
   };
 };
